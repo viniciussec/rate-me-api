@@ -15,12 +15,13 @@ export class ProductController {
   }
 
   async create(req: Request, res: Response) {
-    const { name, manufacturer, category, description } = req.body;
+    const { name, manufacturer, category, description, imageUrl } = req.body;
     const product = await new ProductService().create({
       name,
       manufacturer,
       category,
       description,
+      imageUrl,
     });
     return res.status(201).json(product);
   }

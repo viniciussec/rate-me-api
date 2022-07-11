@@ -9,7 +9,7 @@ export class ProductService {
   }
 
   async create(product: any): Promise<Product | Error> {
-    const { name, manufacturer, category, description } = product;
+    const { name, manufacturer, category, description, imageUrl } = product;
     const productRepository = myDataSource.getRepository(Product);
 
     const newProduct = await productRepository.create({
@@ -17,6 +17,7 @@ export class ProductService {
       manufacturer,
       category,
       description,
+      imageUrl
     });
     productRepository.save(newProduct);
 
